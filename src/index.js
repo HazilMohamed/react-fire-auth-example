@@ -5,6 +5,11 @@ import routes from "./routes.js";
 import Header from "./Header";
 import "./styles.css";
 
+import * as firebase from "firebase";
+import firebaseConfig from "./firebase.config";
+
+firebase.initializeApp(firebaseConfig);
+
 export const AuthContext = React.createContext(null);
 
 function App() {
@@ -18,7 +23,7 @@ function App() {
           <Header />
 
           <Switch>
-            {routes.map(route => (
+            {routes.map((route) => (
               <Route
                 key={route.path}
                 path={route.path}
